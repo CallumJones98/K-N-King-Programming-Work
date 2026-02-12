@@ -510,3 +510,36 @@ int main(void) {
 
     return 0;
 }
+
+// 7.13
+
+#include <stdio.h>
+#include <ctype.h>
+int main(void) {
+    int word_len = 0;
+    int total_words = 0;
+    char ch;
+
+    printf("Enter a sentence: ");
+
+    // We can get the first character right here
+    ch = getchar();
+
+    while (ch != '\n' && ch != '.') {
+        if (ch != ' ') {
+            word_len++;
+        } else {
+            total_words++;
+        }
+        ch = getchar();
+    }
+
+    total_words++;
+
+    if (total_words > 0) {
+        float avg_len = (float)word_len / total_words;
+        printf("Average word length: %.2f\n", avg_len);
+    }
+
+    return 0;
+}
