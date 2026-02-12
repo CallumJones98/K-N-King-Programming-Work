@@ -1,29 +1,18 @@
-
 #include <stdio.h>
-
 int main(void){
 
-  int dollar_amount;
-  int twentys, tens, fives, singles;
+  int a[] = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
+  int tar;
 
-  printf("Enter a dollar amount: ");
-  scanf("%d", &dollar_amount);
+  printf("Enter target: ");
+  scanf("%d", &tar);
 
-  twentys = dollar_amount / 20;
-  dollar_amount = dollar_amount - (twentys * 20);
-
-  tens = dollar_amount / 10;
-  dollar_amount = dollar_amount - (tens * 10);
-
-  fives = dollar_amount / 5;
-  dollar_amount = dollar_amount - (fives * 5);
-
-  singles = dollar_amount;
-
-  printf("$20 bills: %d\n", twentys);
-  printf("$10 bills: %d\n", tens);
-  printf("$5 bills: %d\n", fives);
-  printf("$1 bills: %d\n", singles);
+  for (int i = 0; i < 10; i++){
+    if (a[i] == tar){
+      printf("%d found in array at index %d \n", tar, i);
+      break;
+    }
+  }
 
   return 0;
 
