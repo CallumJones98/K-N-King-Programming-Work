@@ -1,31 +1,31 @@
 #include <stdio.h>
+#define N 22
 int main(void){
 
-  int array_len;
-  int count = 0; 
+  int array[N] = {1,2,3,4,7,8,9,11,12,17,19,22,31,41,90,91,99,102,110,145,175,201};
+  int target = 102;
 
-  printf("Input the number of elements to store in the array: ");
-  scanf("%d", &array_len);
+  int left = 0;
+  int right = N - 1;
 
-  int array[array_len];
+  while (left <= right){
 
-  printf("Input %d elements in the array: \n", array_len);
-  for(int i = 0; i < array_len; i++) {
-      printf("Element %d: ", i + 1);
-      scanf("%d", &array[i]);
+    int mid_point = left + (right - left) / 2;
+
+    if(array[mid_point] == target){
+      printf("Target found at index %d \n", mid_point);
+      break;
     }
 
-  for(int i = 0; i < array_len; i++) {
-      for(int j = i + 1; j < array_len; j++) {
-          if(array[i] == array[j]) {
-              count++;
-              break; 
-            }
-        }
+    else if (array[mid_point] < target){
+      left = mid_point + 1;
     }
 
-    printf("Total number of duplicate elements found: %d\n", count);
+    else{
+      right = mid_point - 1;
+    }
+  }
 
-    return 0;
-    
+  return 0;
+
 }
