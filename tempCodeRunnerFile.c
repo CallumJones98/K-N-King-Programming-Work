@@ -1,42 +1,31 @@
 #include <stdio.h>
-#include <ctype.h>
 int main(void){
 
-    char new_string[100]; 
-    char ch;
-    int i = 0;
+  int array_len;
+  int count = 0; 
 
-    printf("Enter a sentence: ");
+  printf("Input the number of elements to store in the array: ");
+  scanf("%d", &array_len);
 
-    while ((ch = getchar()) != '\n' && i < 99) {
-        if (ch == 'a' || ch == 'A') {
-            new_string[i] = '4'; 
-        } 
-        else if (ch == 'b' || ch == 'B'){
-            new_string[i] = '8';
-        }
-        else if (ch == 'e' || ch == 'E'){
-            new_string[i] = '3';
-        }
-        else if (ch == 'i' || ch == 'I'){
-            new_string[i] = '1';
-        }
-        else if (ch == 'o' || ch == 'O'){
-            new_string[i] = '0';
-        }
-        else if (ch == 's' || ch == 'S'){
-            new_string[i] = '5';
-        }
-        else {
-            ch = toupper(ch);
-            new_string[i] = ch;  
-        }
-        i++; 
+  int array[array_len];
+
+  printf("Input %d elements in the array: \n", array_len);
+  for(int i = 0; i < array_len; i++) {
+      printf("Element %d: ", i + 1);
+      scanf("%d", &array[i]);
     }
 
-    new_string[i] = '\0'; 
+  for(int i = 0; i < array_len; i++) {
+      for(int j = i + 1; j < array_len; j++) {
+          if(array[i] == array[j]) {
+              count++;
+              break; 
+            }
+        }
+    }
 
-    printf("Modified sentence: %s\n", new_string);
+    printf("Total number of duplicate elements found: %d\n", count);
 
     return 0;
+    
 }
